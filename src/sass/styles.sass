@@ -1,8 +1,187 @@
-body
-  margin: 0
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
 
-code
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace
+$white: #f5f5f5
+$soft-white: #f2f2f2
+$off-white: #ebebeb
+$custom-black: #1B1B1B
+$borders: #686868
+$borders-light: #cccccc
+$soft-gray: #4A4A4A
+$gray: #3B3B3B
+$dark-gray: #2B2B2B
+$soft-green: #75f0a0
+$green: #1CCC5B
+$dark-green: #117a37
+$soft-blue: #729cff
+$blue: #2D6BFF
+$dark-blue: #1F4AB2
+$soft-red: #d55a67
+$red: #d31225
+$dark-red: #850d19
+$soft-shadow: 0px 0px 6px rgba(33, 13, 5, 0.14)
+$shadow: 0px 4px 8px rgba(33, 13, 5, 0.16)
+$strong-shadow: 0 9px 32px -1px rgba(0, 0, 0, 0.5)
+$transition: all 0.3s ease
+$input-shadow: 0px 0px 0px 3px #1ccc5a41
+
+@mixin font ($weight: normal, $size: 1.6rem, $line: normal, $color: white)
+	font-weight: $weight
+	font-size: $size
+	line-height: $line
+	color: $color
+
+@mixin input-text()
+	margin: 10px 0
+	padding: 10px
+	inline-size: 100%
+	font-size: 1.5rem
+	font-weight: 500
+	border-radius: 5px
+	border: 1px solid transparent
+	background-color: $dark-gray
+	transition: $transition
+	outline: none
+	user-select: none
+	&:hover
+		border-color: $borders
+	&:focus
+		border-color: $green
+		-webkit-box-shadow: $input-shadow
+		-moz-box-shadow: $input-shadow
+		box-shadow: $input-shadow
+
+@mixin btn($soft: $soft-green,$normal: $green,$dark: $dark-green)
+	padding: 10px
+	inline-size: 100%
+	font-size: 1.5rem
+	font-weight: bold
+	border-radius: 5px
+	border: 1px solid $soft
+	background-color: $normal
+	transition: $transition
+	cursor: pointer
+	user-select: none
+	&:hover
+		border-color: $normal
+		background-color: $dark
+	&:active
+		border-color: $dark
+
+::selection
+		color: white
+		background-color: $green
+
+// Scroll
+::-webkit-scrollbar
+	-webkit-appearance: none
+
+::-webkit-scrollbar:vertical
+	inline-size: 7px
+
+::-webkit-scrollbar-button:increment,::-webkit-scrollbar-button
+	display: none
+
+::-webkit-scrollbar:horizontal
+	block-size: 10px
+
+::-webkit-scrollbar-thumb
+	background-color: #ffffff44
+	border-radius: 20px
+
+::-webkit-scrollbar-thumb:hover
+	background-color: #ffffff7b
+
+::-webkit-scrollbar-track
+	margin: 0 3px
+	border-radius: 10px
+
+*
+	margin: 0
+	padding: 0
+	font-family: 'Montserrat', sans-serif
+	color: white
+	box-sizing: border-box
+
+html
+	font-size: 62.5%
+
+body
+	background-color: $custom-black
+
+.header
+	display: flex
+	justify-content: center
+	align-items: center
+	margin: 0 auto
+	padding-block-start: 5px
+	inline-size: 360px
+	user-select: none
+	cursor: pointer
+	&__img
+		inline-size: 80px
+	&__title
+		font-size: 2.5rem
+		color: $green
+
+.input-search-container
+	inline-size: 100%
+	text-align: center
+
+.input-search
+	@include input-text()
+	inline-size: 787px
+	text-align: center
+
+.table
+	margin: 0 auto 50px
+	padding: 20px
+	border-radius: 5px
+	background-color: $dark-gray
+	tr
+		font-size: 1.5rem
+	&__title
+		padding: 0 20px 10px 0
+		font-weight: bold
+		color: $green
+		text-transform: uppercase
+		&:nth-child(1n)
+			inline-size: 35px
+		&:nth-child(2n)
+			inline-size: 300px
+		&:nth-child(3n)
+			inline-size: 120px
+		&:nth-child(4n)
+			inline-size: 150px
+		&:nth-child(5n)
+			inline-size: 130px
+	&__info
+		padding: 5px 0
+		&:nth-child(1n)
+			font-weight: bold
+		&:nth-child(2n)
+			img
+				margin-inline-end: 10px
+				inline-size: 15px
+				user-select: none
+			span
+				font-weight: 400
+			b
+				margin-inline-start: 10px
+				text-transform: uppercase
+				color: $soft-gray
+		&:nth-child(3n)
+			font-weight: 400
+			b
+				color: $soft-green
+		&:nth-child(4n)
+			font-weight: 500
+		&.green
+			color: $green
+			b
+				color: $green
+		&.red
+			color: $red
+			b
+				color: $red
+		&:nth-child(5n)
+			font-weight: 500
